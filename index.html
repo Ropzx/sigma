@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sigmas</title>
     <style>
-        /* General Page Styles */
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(45deg, #ff6f61, #d64fff, #61dafb);
@@ -20,6 +19,7 @@
             animation: gradientBG 5s ease infinite;
             position: relative;
             overflow: hidden;
+            flex-direction: column;
         }
 
         @keyframes gradientBG {
@@ -30,36 +30,30 @@
 
         .person-container {
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            width: 90%;
+            justify-content: space-around;
+            align-items: center;
+            width: 95%;
             max-width: 900px;
-            margin: 20px auto;
-            z-index: 10;
+            margin-top: 10px;
         }
 
         .person-section {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 15px;
+            padding: 10px;
             text-align: center;
             flex: 1;
-            margin: 10px;
-            transition: transform 0.2s ease-in-out;
-            max-width: 280px;
-        }
-
-        .person-section:hover {
-            transform: scale(1.05);
+            margin: 5px;
+            max-width: 250px;
         }
 
         .person-photo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             object-fit: cover;
             border-radius: 50%;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             border: 3px solid #ddd;
         }
 
@@ -67,8 +61,8 @@
             background-color: #4CAF50;
             color: white;
             border: none;
-            border-radius: 25px;
-            padding: 10px 15px;
+            border-radius: 20px;
+            padding: 8px 12px;
             cursor: pointer;
             font-size: 14px;
             transition: background-color 0.3s, transform 0.2s;
@@ -79,26 +73,39 @@
             transform: scale(1.1);
         }
 
-        button:active {
-            transform: scale(0.9);
-        }
-
         h2 {
             color: #333;
-            margin-bottom: 8px;
-            font-size: 1em;
-            font-weight: bold;
+            font-size: 0.9em;
+            margin-bottom: 6px;
         }
 
         @media (max-width: 768px) {
             .person-container {
-                flex-direction: column;
-                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                width: 100%;
             }
 
             .person-section {
-                width: 90%;
-                max-width: 300px;
+                width: 30%;
+                max-width: 140px;
+                padding: 8px;
+            }
+
+            .person-photo {
+                width: 80px;
+                height: 80px;
+            }
+
+            h2 {
+                font-size: 0.8em;
+            }
+
+            button {
+                font-size: 12px;
+                padding: 6px 10px;
             }
         }
 
@@ -106,10 +113,10 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 350px;
-            height: 350px;
-            margin-top: -175px;
-            margin-left: -175px;
+            width: 300px;
+            height: 300px;
+            margin-top: -150px;
+            margin-left: -150px;
             border-radius: 50%;
             animation: rotate 20s linear infinite;
             z-index: -1;
@@ -119,9 +126,9 @@
             position: absolute;
             top: 0;
             left: 50%;
-            width: 80px;
-            height: 80px;
-            margin-left: -40px;
+            width: 70px;
+            height: 70px;
+            margin-left: -35px;
             border-radius: 50%;
         }
 
@@ -172,13 +179,11 @@
         function playAudio(audioId) {
             var audio = document.getElementById(audioId);
 
-            // Stop currently playing audio (if it's a different one)
             if (currentAudio && currentAudio !== audio) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
             }
 
-            // Play or pause the clicked audio
             if (audio.paused) {
                 audio.play();
                 currentAudio = audio;
@@ -192,4 +197,3 @@
 
 </body>
 </html>
-
