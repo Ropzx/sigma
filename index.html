@@ -8,98 +8,88 @@
         /* General Page Styles */
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(45deg, #ff6f61, #d64fff, #61dafb); /* Cool gradient background */
+            background: linear-gradient(45deg, #ff6f61, #d64fff, #61dafb);
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            width: 100%;
             background-size: 400% 400%;
             animation: gradientBG 5s ease infinite;
             position: relative;
-            overflow: hidden; /* Hide parts of the circle animation that go off-screen */
+            overflow: hidden;
         }
 
-        /* Keyframe animation for background gradient */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Container for the person sections */
         .person-container {
-            position: relative;
             display: flex;
-            justify-content: space-between;
-            width: 80%;
-            max-width: 1000px;
-            margin: 20px;
-            z-index: 10; /* Ensure content is above the rotating circle images */
+            justify-content: center;
+            flex-wrap: wrap;
+            width: 90%;
+            max-width: 900px;
+            margin: 20px auto;
+            z-index: 10;
         }
 
-        /* Individual person section styling */
         .person-section {
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            padding: 15px;
             text-align: center;
             flex: 1;
-            margin: 0 10px;
+            margin: 10px;
             transition: transform 0.2s ease-in-out;
+            max-width: 280px;
         }
 
         .person-section:hover {
             transform: scale(1.05);
         }
 
-        /* Image styling with hover effect */
         .person-photo {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             object-fit: cover;
             border-radius: 50%;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             border: 3px solid #ddd;
-            transition: transform 0.3s ease;
         }
 
-        .person-photo:hover {
-            transform: scale(1.1); /* Slight zoom effect */
-        }
-
-        /* Button styling */
         button {
             background-color: #4CAF50;
             color: white;
             border: none;
-            border-radius: 50px;
-            padding: 10px 20px;
+            border-radius: 25px;
+            padding: 10px 15px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px;
             transition: background-color 0.3s, transform 0.2s;
         }
 
         button:hover {
             background-color: #45a049;
-            transform: scale(1.1); /* Button grows on hover */
+            transform: scale(1.1);
         }
 
         button:active {
-            transform: scale(0.9); /* Button shrinks when clicked */
+            transform: scale(0.9);
         }
 
-        /* Heading styling */
         h2 {
             color: #333;
-            margin-bottom: 10px;
-            font-size: 1.2em;
+            margin-bottom: 8px;
+            font-size: 1em;
             font-weight: bold;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .person-container {
                 flex-direction: column;
@@ -107,106 +97,99 @@
             }
 
             .person-section {
-                margin-bottom: 20px;
+                width: 90%;
                 max-width: 300px;
             }
         }
 
-        /* Circle Image Rotating Effect */
         .circle-container {
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 500px;
-            height: 500px;
-            margin-top: -250px; /* Half of height to center it */
-            margin-left: -250px; /* Half of width to center it */
+            width: 350px;
+            height: 350px;
+            margin-top: -175px;
+            margin-left: -175px;
             border-radius: 50%;
-            animation: rotate 20s linear infinite; /* Rotate every 20s */
-            z-index: -2; /* Behind the sigma images */
+            animation: rotate 20s linear infinite;
+            z-index: -1;
         }
 
         .circle-container img {
             position: absolute;
             top: 0;
             left: 50%;
-            width: 100px;
-            height: 100px;
-            margin-left: -25px; /* Center the image */
+            width: 80px;
+            height: 80px;
+            margin-left: -40px;
             border-radius: 50%;
         }
 
-        /* Keyframe for rotating the images in circle */
         @keyframes rotate {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
     </style>
 </head>
 <body>
 
     <div class="person-container">
-        <div class="person-section" id="person1">
+        <div class="person-section">
             <h2>Bombardino Crocodilo</h2>
             <img src="jpg/bombardino_crocodilo.jpg" alt="Bombardino Crocodilo" class="person-photo">
-            <button onclick="toggleAudio('audio1')">▶︎ •၊၊||၊|।||||</button>
+            <button onclick="playAudio('audio1')">▶︎ •၊၊||၊|।||||</button>
             <audio id="audio1">
                 <source src="audio/audio1.mp3" type="audio/mp3">
             </audio>
         </div>
 
-        <div class="person-section" id="person2">
+        <div class="person-section">
             <h2>Lirili Larala</h2>
             <img src="jpg/lirili_larala.jpg" alt="Lirili Larala" class="person-photo">
-            <button onclick="toggleAudio('audio2')">▶︎ •၊၊||၊|।||||</button>
+            <button onclick="playAudio('audio2')">▶︎ •၊၊||၊|।||||</button>
             <audio id="audio2">
                 <source src="audio/audio2.mp3" type="audio/mp3">
             </audio>
         </div>
 
-        <div class="person-section" id="person3">
+        <div class="person-section">
             <h2>Trallalero Trallala</h2>
             <img src="jpg/trallalero_trallala.jpg" alt="Trallalero Trallala" class="person-photo">
-            <button onclick="toggleAudio('audio3')">▶︎ •၊၊||၊|।||||</button>
+            <button onclick="playAudio('audio3')">▶︎ •၊၊||၊|।||||</button>
             <audio id="audio3">
                 <source src="audio/audio3.mp3" type="audio/mp3">
             </audio>
         </div>
     </div>
 
-    <!-- Circle Image Rotating Effect -->
     <div class="circle-container">
-        <img src="jpg/skib.jpg" style="transform: rotate(0deg);" />
+        <img src="jpg/skib.jpg" />
     </div>
 
     <script>
         let currentAudio = null;
 
-        // Function to toggle audio play/pause
-        function toggleAudio(audioId) {
+        function playAudio(audioId) {
             var audio = document.getElementById(audioId);
 
-            // If there is currently an audio playing and it's not the one clicked, stop it and reset
+            // Stop currently playing audio (if it's a different one)
             if (currentAudio && currentAudio !== audio) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
-                document.querySelector(`#${currentAudio.id} + button`).textContent = '▶︎ •၊၊||၊|।||||';
             }
 
-            // If audio is paused, play it and set it as the current audio
+            // Play or pause the clicked audio
             if (audio.paused) {
                 audio.play();
-                document.querySelector(`#${audioId} + button`).textContent = '▶︎ •၊၊||၊|।||||';
                 currentAudio = audio;
             } else {
                 audio.pause();
                 audio.currentTime = 0;
-                document.querySelector(`#${audioId} + button`).textContent = '▶︎ •၊၊||၊|।||||';
-                currentAudio = null; // Clear the reference when paused
+                currentAudio = null;
             }
         }
     </script>
 
 </body>
 </html>
+
