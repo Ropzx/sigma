@@ -13,13 +13,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             width: 100%;
             background-size: 400% 400%;
             animation: gradientBG 5s ease infinite;
             position: relative;
-            overflow: hidden;
             flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        html {
+            height: 100%;
+            background: linear-gradient(45deg, #ff6f61, #d64fff, #61dafb);
+            background-size: 400% 400%;
+            animation: gradientBG 5s ease infinite;
         }
 
         @keyframes gradientBG {
@@ -30,21 +37,22 @@
 
         .person-container {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
             width: 95%;
             max-width: 900px;
-            margin-top: 10px;
+            margin-top: 30px;
+            gap: 10px;
         }
 
         .person-section {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 12px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 10px;
+            padding: 15px;
             text-align: center;
             flex: 1;
-            margin: 5px;
             max-width: 250px;
         }
 
@@ -81,17 +89,15 @@
 
         @media (max-width: 768px) {
             .person-container {
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 8px;
-                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
             }
 
             .person-section {
-                width: 30%;
-                max-width: 140px;
-                padding: 8px;
+                width: 80%;
+                max-width: 300px;
+                padding: 12px;
             }
 
             .person-photo {
@@ -100,12 +106,12 @@
             }
 
             h2 {
-                font-size: 0.8em;
+                font-size: 1em;
             }
 
             button {
-                font-size: 12px;
-                padding: 6px 10px;
+                font-size: 14px;
+                padding: 8px 12px;
             }
         }
 
